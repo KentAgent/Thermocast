@@ -1,0 +1,455 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		352657102056A8880066AF03 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526570F2056A8880066AF03 /* AppDelegate.swift */; };
+		352657122056A8880066AF03 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352657112056A8880066AF03 /* ViewController.swift */; };
+		352657152056A8880066AF03 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352657132056A8880066AF03 /* Main.storyboard */; };
+		352657172056A8880066AF03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 352657162056A8880066AF03 /* Assets.xcassets */; };
+		3526571A2056A8880066AF03 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 352657182056A8880066AF03 /* LaunchScreen.storyboard */; };
+		352657252056A94F0066AF03 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352657242056A94F0066AF03 /* TableViewController.swift */; };
+		352657272056B99A0066AF03 /* WeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352657262056B99A0066AF03 /* WeatherData.swift */; };
+		352657292056C1540066AF03 /* AddCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352657282056C1540066AF03 /* AddCity.swift */; };
+		3526572B2056CA560066AF03 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526572A2056CA560066AF03 /* CustomTableViewCell.swift */; };
+		9B0B0163E0B91519D8E1F5A9 /* Pods_Thermocast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93A11E1F85DC9AF1CCC8B39 /* Pods_Thermocast.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3526570C2056A8870066AF03 /* Thermocast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Thermocast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3526570F2056A8880066AF03 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		352657112056A8880066AF03 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		352657142056A8880066AF03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		352657162056A8880066AF03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		352657192056A8880066AF03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3526571B2056A8880066AF03 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		352657242056A94F0066AF03 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		352657262056B99A0066AF03 /* WeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherData.swift; sourceTree = "<group>"; };
+		352657282056C1540066AF03 /* AddCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCity.swift; sourceTree = "<group>"; };
+		3526572A2056CA560066AF03 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		A45E8D8AAEE4EF5CF2C8D38F /* Pods-Thermocast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermocast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast.release.xcconfig"; sourceTree = "<group>"; };
+		A93A11E1F85DC9AF1CCC8B39 /* Pods_Thermocast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermocast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6DED223E9F6640AB087E31A /* Pods-Thermocast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermocast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		352657092056A8870066AF03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B0B0163E0B91519D8E1F5A9 /* Pods_Thermocast.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		352657032056A8870066AF03 = {
+			isa = PBXGroup;
+			children = (
+				3526570E2056A8870066AF03 /* Thermocast */,
+				3526570D2056A8870066AF03 /* Products */,
+				E15548E484D195E119144C98 /* Pods */,
+				BF133014E8A968C5B7E5C5AC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		3526570D2056A8870066AF03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3526570C2056A8870066AF03 /* Thermocast.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3526570E2056A8870066AF03 /* Thermocast */ = {
+			isa = PBXGroup;
+			children = (
+				352657232056A92C0066AF03 /* Controller */,
+				352657222056A9250066AF03 /* View */,
+				352657212056A90F0066AF03 /* Model */,
+				3526570F2056A8880066AF03 /* AppDelegate.swift */,
+				352657112056A8880066AF03 /* ViewController.swift */,
+				352657182056A8880066AF03 /* LaunchScreen.storyboard */,
+				3526571B2056A8880066AF03 /* Info.plist */,
+			);
+			path = Thermocast;
+			sourceTree = "<group>";
+		};
+		352657212056A90F0066AF03 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				352657262056B99A0066AF03 /* WeatherData.swift */,
+			);
+			name = Model;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		352657222056A9250066AF03 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				352657132056A8880066AF03 /* Main.storyboard */,
+				352657162056A8880066AF03 /* Assets.xcassets */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		352657232056A92C0066AF03 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				352657242056A94F0066AF03 /* TableViewController.swift */,
+				352657282056C1540066AF03 /* AddCity.swift */,
+				3526572A2056CA560066AF03 /* CustomTableViewCell.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BF133014E8A968C5B7E5C5AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A93A11E1F85DC9AF1CCC8B39 /* Pods_Thermocast.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E15548E484D195E119144C98 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F6DED223E9F6640AB087E31A /* Pods-Thermocast.debug.xcconfig */,
+				A45E8D8AAEE4EF5CF2C8D38F /* Pods-Thermocast.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3526570B2056A8870066AF03 /* Thermocast */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3526571E2056A8880066AF03 /* Build configuration list for PBXNativeTarget "Thermocast" */;
+			buildPhases = (
+				5DC0F90F983C19FB5FA0BB0C /* [CP] Check Pods Manifest.lock */,
+				352657082056A8870066AF03 /* Sources */,
+				352657092056A8870066AF03 /* Frameworks */,
+				3526570A2056A8870066AF03 /* Resources */,
+				7915EF558E001C71C034EF46 /* [CP] Embed Pods Frameworks */,
+				F3115320C1375BF1C753ECED /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Thermocast;
+			productName = Thermocast;
+			productReference = 3526570C2056A8870066AF03 /* Thermocast.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		352657042056A8870066AF03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Georgios;
+				TargetAttributes = {
+					3526570B2056A8870066AF03 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 352657072056A8870066AF03 /* Build configuration list for PBXProject "Thermocast" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 352657032056A8870066AF03;
+			productRefGroup = 3526570D2056A8870066AF03 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3526570B2056A8870066AF03 /* Thermocast */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3526570A2056A8870066AF03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3526571A2056A8880066AF03 /* LaunchScreen.storyboard in Resources */,
+				352657172056A8880066AF03 /* Assets.xcassets in Resources */,
+				352657152056A8880066AF03 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5DC0F90F983C19FB5FA0BB0C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Thermocast-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7915EF558E001C71C034EF46 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F3115320C1375BF1C753ECED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		352657082056A8870066AF03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3526572B2056CA560066AF03 /* CustomTableViewCell.swift in Sources */,
+				352657122056A8880066AF03 /* ViewController.swift in Sources */,
+				352657292056C1540066AF03 /* AddCity.swift in Sources */,
+				352657252056A94F0066AF03 /* TableViewController.swift in Sources */,
+				352657272056B99A0066AF03 /* WeatherData.swift in Sources */,
+				352657102056A8880066AF03 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		352657132056A8880066AF03 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				352657142056A8880066AF03 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		352657182056A8880066AF03 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				352657192056A8880066AF03 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3526571C2056A8880066AF03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3526571D2056A8880066AF03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3526571F2056A8880066AF03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6DED223E9F6640AB087E31A /* Pods-Thermocast.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6E23342LP;
+				INFOPLIST_FILE = Thermocast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GA.Thermocast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		352657202056A8880066AF03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A45E8D8AAEE4EF5CF2C8D38F /* Pods-Thermocast.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S6E23342LP;
+				INFOPLIST_FILE = Thermocast/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = GA.Thermocast;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		352657072056A8870066AF03 /* Build configuration list for PBXProject "Thermocast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3526571C2056A8880066AF03 /* Debug */,
+				3526571D2056A8880066AF03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3526571E2056A8880066AF03 /* Build configuration list for PBXNativeTarget "Thermocast" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3526571F2056A8880066AF03 /* Debug */,
+				352657202056A8880066AF03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 352657042056A8870066AF03 /* Project object */;
+}
