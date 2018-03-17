@@ -24,7 +24,6 @@
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <state key="normal" image="ic_add_circle"/>
                             <connections>
-                                <action selector="addCityButton:" destination="sBf-oJ-SwE" eventType="touchUpInside" id="M1N-J4-fTN"/>
                                 <segue destination="lXm-Mf-GlB" kind="show" identifier="addCity" id="R8o-pe-K4c"/>
                             </connections>
                         </button>
@@ -82,7 +81,6 @@
                                     <outlet property="cityLabel" destination="1fy-90-7NE" id="C63-gs-2hA"/>
                                     <outlet property="degreeLabel" destination="8AY-Hr-7SG" id="jl9-KN-AT3"/>
                                     <outlet property="weatherAsset" destination="zh5-mK-VGf" id="8Na-JO-bty"/>
-                                    <segue destination="00t-Sd-njQ" kind="show" identifier="weatherInfo" id="qNn-Ia-2Kt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -94,6 +92,7 @@
                     <navigationItem key="navigationItem" id="oq1-mo-X9d"/>
                     <connections>
                         <outlet property="addButton" destination="MTu-OH-GRQ" id="ll7-CR-RER"/>
+                        <segue destination="00t-Sd-njQ" kind="show" identifier="weatherInfo" id="4A1-ep-HAH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFa-qd-tZN" userLabel="First Responder" sceneMemberID="firstResponder"/>

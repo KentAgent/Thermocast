@@ -69,7 +69,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         cell.degreeLabel.text = "\(weatherDataDictionary[keysArray[indexPath.row]]?["degrees"] ?? "")°"
         cell.weatherAsset.image = UIImage(named: (weatherDataDictionary[keysArray[indexPath.row]]?["weatherIcon"]!)!)!
         
-        cellName = cell.cityLabel.text!
+        //cellName = cell.cityLabel.text!
         
         return cell
     }
@@ -124,6 +124,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        print("Before setting cellName:")
+        print(cellName)
+        cellName = (weatherDataDictionary[keysArray[indexPath.row]]?["cityName"])!
+        print("After setting cellName:")
+        print(cellName)
         performSegue(withIdentifier: "weatherInfo", sender: self)
     }
     
@@ -131,7 +137,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         if segue.identifier == "weatherInfo" {
             let infoVC = segue.destination as! InfoViewController
             
-            
+            print("cellName value inside prepSegue: \(cellName)")
             infoVC.data = cellName
             
         }
