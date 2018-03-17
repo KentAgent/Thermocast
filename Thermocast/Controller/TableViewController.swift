@@ -13,6 +13,8 @@ import SwiftyJSON
 
 class TableViewController: UITableViewController, CLLocationManagerDelegate {
     
+    var cellName = ""
+    
     @IBOutlet weak var addButton: UIButton!
     
     //var weatherDataArray : [String : [String]] = ["gothenburg" : ["Gothenburg", "0", "-30"], "singapore" : ["Singapore", "1", "32"], "athens" : ["Athens", "2", "20"]]
@@ -25,6 +27,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "T H E R M O C A S T"
         
         print(weatherDataDictionary[keysArray[0]]!["cityName"]!)
         
@@ -53,15 +57,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         // #warning Incomplete implementation, return the number of rows
         return weatherDataDictionary.count
     }
-
-    
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
-//
-//        // Configure the cell...
-//
-//        return cell
-//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell") as! CustomTableViewCell
@@ -73,6 +68,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         cell.cityLabel.text = weatherDataDictionary[keysArray[indexPath.row]]?["cityName"]
         cell.degreeLabel.text = "\(weatherDataDictionary[keysArray[indexPath.row]]?["degrees"] ?? "")°"
         cell.weatherAsset.image = UIImage(named: (weatherDataDictionary[keysArray[indexPath.row]]?["weatherIcon"]!)!)!
+        
+        cellName = cell.cityLabel.text!
         
         return cell
     }
@@ -122,5 +119,22 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         // Pass the selected object to the new view controller.
     }
     */
-
+    @IBAction func addCityButton(_ sender: Any) {
+        performSegue(withIdentifier: "addCity", sender: self)
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "weatherInfo", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "weatherInfo" {
+            let infoVC = segue.destination as! InfoViewController
+            
+            
+            infoVC.data = cellName
+            
+        }
+    }
+    
 }

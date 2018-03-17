@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sBf-oJ-SwE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ykJ-2K-ueO">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,6 +23,10 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="23"/>
                             <state key="normal" image="ic_add_circle"/>
+                            <connections>
+                                <action selector="addCityButton:" destination="sBf-oJ-SwE" eventType="touchUpInside" id="M1N-J4-fTN"/>
+                                <segue destination="lXm-Mf-GlB" kind="show" identifier="addCity" id="R8o-pe-K4c"/>
+                            </connections>
                         </button>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="IP0-2w-05N" customClass="CustomTableViewCell" customModule="Thermocast" customModuleProvider="target">
@@ -78,6 +82,7 @@
                                     <outlet property="cityLabel" destination="1fy-90-7NE" id="C63-gs-2hA"/>
                                     <outlet property="degreeLabel" destination="8AY-Hr-7SG" id="jl9-KN-AT3"/>
                                     <outlet property="weatherAsset" destination="zh5-mK-VGf" id="8Na-JO-bty"/>
+                                    <segue destination="00t-Sd-njQ" kind="show" identifier="weatherInfo" id="qNn-Ia-2Kt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -86,13 +91,41 @@
                             <outlet property="delegate" destination="sBf-oJ-SwE" id="2ws-wg-qOc"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="oq1-mo-X9d"/>
                     <connections>
                         <outlet property="addButton" destination="MTu-OH-GRQ" id="ll7-CR-RER"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFa-qd-tZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="114.40000000000001" y="99.400299850074973"/>
+            <point key="canvasLocation" x="453.60000000000002" y="99.400299850074973"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="DvN-fq-32q">
+            <objects>
+                <viewController id="00t-Sd-njQ" customClass="InfoViewController" customModule="Thermocast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ku0-r0-Dka">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1g-vw-yB7">
+                                <rect key="frame" x="16" y="79" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95277994870000005" green="0.57933038469999998" blue="0.57551056150000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ch8-Qr-CIP"/>
+                    </view>
+                    <connections>
+                        <outlet property="cityNameLabel" destination="V1g-vw-yB7" id="qRF-mU-1Yi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GzU-VG-OyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1295.2" y="98.50074962518741"/>
         </scene>
         <!--Add City-->
         <scene sceneID="HXE-cN-wYR">
@@ -101,13 +134,50 @@
                     <view key="view" contentMode="scaleToFill" id="WRD-YL-XrF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.95277994870000005" green="0.57933038469999998" blue="0.57551056150000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ZzV-ld-w6r"/>
                     </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="xmS-gI-2Zd" id="Dfz-Qc-vVi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4S8-As-i5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="lKO-I0-Yus">
+                    <connections>
+                        <outlet property="delegate" destination="lXm-Mf-GlB" id="Fza-f8-mWh"/>
+                        <outlet property="searchContentsController" destination="lXm-Mf-GlB" id="SSr-Tv-DTV"/>
+                        <outlet property="searchResultsDataSource" destination="lXm-Mf-GlB" id="wZv-fj-uwp"/>
+                        <outlet property="searchResultsDelegate" destination="lXm-Mf-GlB" id="b4K-Wn-SQO"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="xmS-gI-2Zd">
+                    <connections>
+                        <outlet property="delegate" destination="lXm-Mf-GlB" id="yFZ-yF-ooO"/>
+                        <outlet property="searchContentsController" destination="lXm-Mf-GlB" id="yfk-5a-XJ6"/>
+                        <outlet property="searchResultsDataSource" destination="lXm-Mf-GlB" id="3Fr-Kg-lxP"/>
+                        <outlet property="searchResultsDelegate" destination="lXm-Mf-GlB" id="8e6-Am-VAI"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="948" y="99"/>
+            <point key="canvasLocation" x="114" y="819"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="KXH-Zt-ouZ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ykJ-2K-ueO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k6w-ei-HcA">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sBf-oJ-SwE" kind="relationship" relationship="rootViewController" id="5um-oG-Cum"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mXu-G8-puH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-337" y="99"/>
         </scene>
     </scenes>
     <resources>
