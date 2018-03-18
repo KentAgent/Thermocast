@@ -11,17 +11,20 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
-class TableViewController: UITableViewController, CLLocationManagerDelegate {
+class TableViewController: UITableViewController, CLLocationManagerDelegate, UISearchResultsUpdating {
     
     var cellName = ""
     
     @IBOutlet weak var addButton: UIButton!
     
-    //var weatherDataArray : [String : [String]] = ["gothenburg" : ["Gothenburg", "0", "-30"], "singapore" : ["Singapore", "1", "32"], "athens" : ["Athens", "2", "20"]]
     var weatherDataDictionary : [String : [String : String]] = ["gothenburg" : ["cityName" : "Gothenburg", "weatherIcon" : "snow5", "degrees" : "-30"], "singapore" : ["cityName" : "Singapore", "weatherIcon" : "sunny", "degrees" : "32"], "athens" : ["cityName" : "Athens", "weatherIcon" : "tstorm1", "degrees" : "20"]]
     var keysArray = ["gothenburg", "singapore", "athens"]
     
+    var searchResult : [String] = []
     
+    var searchController : UISearchController!
+    
+    //API Stuff
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "8ecd8d52a8bb9ccdbef85e0cd12187f5"
 
@@ -30,15 +33,42 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         
         title = "T H E R M O C A S T"
         
-        print(weatherDataDictionary[keysArray[0]]!["cityName"]!)
+        definesPresentationContext = true
         
+        searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
         
+        navigationItem.searchController = searchController
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        //print("New Result: \(searchController.searchBar.text)")
+        if let text = searchController.searchBar.text?.lowercased() {
+            searchResult = keysArray.filter({ $0.lowercased().contains(text) })
+        } else {
+            searchResult = []
+        }
+        
+        tableView.reloadData()
+    }
+    
+    var shouldUseSearchResult : Bool {
+        if let text = searchController.searchBar.text {
+            if text.isEmpty {
+                return false
+            } else {
+                return searchController.isActive
+            }
+        } else {
+            return false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,7 +85,12 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return weatherDataDictionary.count
+        //return weatherDataDictionary.count
+        if shouldUseSearchResult {
+            return searchResult.count
+        } else {
+            return keysArray.count
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,10 +99,19 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         // Configure the cell...
         
         //cell.cityLabel.text = weatherData[keysArray[indexPath.row][0]]
+        
+        let array : [String]
+        
+        if shouldUseSearchResult {
+            array = searchResult
+        } else {
+            array = keysArray
+        }
+        
         print(indexPath.row)
-        cell.cityLabel.text = weatherDataDictionary[keysArray[indexPath.row]]?["cityName"]
-        cell.degreeLabel.text = "\(weatherDataDictionary[keysArray[indexPath.row]]?["degrees"] ?? "")°"
-        cell.weatherAsset.image = UIImage(named: (weatherDataDictionary[keysArray[indexPath.row]]?["weatherIcon"]!)!)!
+        cell.cityLabel.text = weatherDataDictionary[array[indexPath.row]]?["cityName"]
+        cell.degreeLabel.text = "\(weatherDataDictionary[array[indexPath.row]]?["degrees"] ?? "")°"
+        cell.weatherAsset.image = UIImage(named: (weatherDataDictionary[array[indexPath.row]]?["weatherIcon"]!)!)!
         
         //cellName = cell.cityLabel.text!
         
@@ -124,12 +168,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        print("Before setting cellName:")
-        print(cellName)
         cellName = (weatherDataDictionary[keysArray[indexPath.row]]?["cityName"])!
-        print("After setting cellName:")
-        print(cellName)
         performSegue(withIdentifier: "weatherInfo", sender: self)
     }
     
@@ -137,7 +176,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate {
         if segue.identifier == "weatherInfo" {
             let infoVC = segue.destination as! InfoViewController
             
-            print("cellName value inside prepSegue: \(cellName)")
             infoVC.data = cellName
             
         }
