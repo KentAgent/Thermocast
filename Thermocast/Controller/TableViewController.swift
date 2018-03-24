@@ -12,8 +12,9 @@ import Alamofire
 import SwiftyJSON
 
 struct Root : Decodable {
-    private enum CodingKeys : String, CodingKey { case main = "main" }
+    private enum CodingKeys : String, CodingKey { case main = "main"; case weather = "weather" }
     let main : Main
+    let weather : [Weather]
 }
 
 struct Main : Decodable {
@@ -21,10 +22,16 @@ struct Main : Decodable {
     let temp : Float
 }
 
+struct Weather : Decodable {
+    //private enum CodingKeys : String, CodingKey { case id = "id" }
+    let id : Int?
+}
+
 
 class TableViewController: UITableViewController, CLLocationManagerDelegate, UISearchResultsUpdating {
     
     var cellName = ""
+    var assetNamed = ""
     
     @IBOutlet weak var addButton: UIButton!
     
@@ -214,6 +221,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
                             
                             DispatchQueue.main.async {
                                 cell.degreeLabel.text = String(weatherResponse.main.temp - 273.15)
+                                self.assetNamed = self.weatherDataModel.updateWeatherIcon(condition: weatherResponse.weather[0].id!)
+                                cell.weatherAsset.image = UIImage(named: self.assetNamed)
                             }
                             
                         } catch let e {
