@@ -11,6 +11,17 @@ import CoreLocation
 import Alamofire
 import SwiftyJSON
 
+struct Root : Decodable {
+    private enum CodingKeys : String, CodingKey { case main = "main" }
+    let main : Main
+}
+
+struct Main : Decodable {
+    private enum CodingKeys : String, CodingKey { case temp = "temp" }
+    let temp : Float
+}
+
+
 class TableViewController: UITableViewController, CLLocationManagerDelegate, UISearchResultsUpdating {
     
     var cellName = ""
@@ -23,6 +34,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     var searchResult : [String] = []
     
     var searchController : UISearchController!
+    
+    let weatherDataModel = WeatherData()
     
     //API Stuff
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -80,12 +93,13 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
+        
+        //TODO: Add second section with current location
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        //return weatherDataDictionary.count
         if shouldUseSearchResult {
             return searchResult.count
         } else {
@@ -97,8 +111,6 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell") as! CustomTableViewCell
         
         // Configure the cell...
-        
-        //cell.cityLabel.text = weatherData[keysArray[indexPath.row][0]]
         
         let array : [String]
         
@@ -113,7 +125,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         cell.degreeLabel.text = "\(weatherDataDictionary[array[indexPath.row]]?["degrees"] ?? "")°"
         cell.weatherAsset.image = UIImage(named: (weatherDataDictionary[array[indexPath.row]]?["weatherIcon"]!)!)!
         
-        //cellName = cell.cityLabel.text!
+        updateWeather(cell: cell)
         
         return cell
     }
@@ -127,17 +139,19 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     }
     */
 
-    /*
+    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            keysArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+ 
 
     /*
     // Override to support rearranging the table view.
@@ -181,4 +195,45 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         }
     }
     
+    func updateWeather(cell: CustomTableViewCell) {
+        if let safeString = cell.cityLabel.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
+            let url = URL(string: "https://api.openweathermap.org/data/2.5/weather?q=\(safeString)&appid=\(APP_ID)") {
+            
+            let request = URLRequest(url: url)
+            print(request)
+            let task = URLSession.shared.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+                if let actualError = error {
+                    print(actualError)
+                } else {
+                    if let actualData = data {
+                        
+                        let decoder = JSONDecoder()
+                        
+                        do {
+                            let weatherResponse = try decoder.decode(Root.self, from: actualData)
+                            
+                            DispatchQueue.main.async {
+                                cell.degreeLabel.text = String(weatherResponse.main.temp - 273.15)
+                            }
+                            
+                        } catch let e {
+                            print("Error parsing JSON: \(e)")
+                        }
+                        
+                    } else {
+                        print("Data was nil : (")
+                    }
+                }
+            })
+            
+            task.resume()
+            print("Sending request")
+            
+        } else {
+            print("Bad url string")
+        }
+        
+    }
 }
+    
+

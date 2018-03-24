@@ -16,7 +16,7 @@ class WeatherData {
     var weatherIconName : String = ""
     
     
-    //Turns a condition code to image asset
+    //Turns a condition code to image asset name
     
     func updateWeatherIcon(condition: Int) -> String {
         
