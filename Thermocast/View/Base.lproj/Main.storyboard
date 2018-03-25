@@ -17,7 +17,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eun-GX-KiX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.95277994870000005" green="0.57933038469999998" blue="0.57551056150000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98571187257766724" green="0.94148349761962891" blue="0.94062334299087524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="MTu-OH-GRQ">
                             <rect key="frame" x="0.0" y="108" width="375" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -38,7 +38,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0i-sM-6BO" userLabel="Cell View">
                                             <rect key="frame" x="10" y="5" width="355" height="69.5"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudy2" translatesAutoresizingMaskIntoConstraints="NO" id="zh5-mK-VGf">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dunno" translatesAutoresizingMaskIntoConstraints="NO" id="zh5-mK-VGf">
                                                     <rect key="frame" x="145" y="2" width="65" height="65"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="65" id="bbg-nd-EX7"/>
@@ -48,13 +48,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fy-90-7NE">
                                                     <rect key="frame" x="0.0" y="21" width="38" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.4848141074180603" green="0.45899873971939087" blue="0.45850735902786255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AY-Hr-7SG">
-                                                    <rect key="frame" x="318" y="20.5" width="37" height="29"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???°" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8AY-Hr-7SG">
+                                                    <rect key="frame" x="312" y="20.5" width="43" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" weight="thin" pointSize="24"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -75,7 +75,7 @@
                                         <constraint firstItem="R0i-sM-6BO" firstAttribute="leading" secondItem="chE-qt-q4a" secondAttribute="leading" constant="10" id="ypd-09-EiH"/>
                                     </constraints>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.95324093099999996" green="0.78246766329999995" blue="0.65632188319999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.87573295831680298" green="0.82777267694473267" blue="0.82687073945999146" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="cellView" destination="R0i-sM-6BO" id="8e8-09-mVc"/>
                                     <outlet property="cityLabel" destination="1fy-90-7NE" id="C63-gs-2hA"/>
@@ -108,14 +108,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1g-vw-yB7">
-                                <rect key="frame" x="16" y="79" width="343" height="51"/>
+                                <rect key="frame" x="16" y="80" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.95277994870000005" green="0.57933038469999998" blue="0.57551056150000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98571187260000004" green="0.94148349760000005" blue="0.94062334299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="ch8-Qr-CIP"/>
                     </view>
                     <connections>
@@ -133,32 +133,61 @@
                     <view key="view" contentMode="scaleToFill" id="WRD-YL-XrF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.95277994870000005" green="0.57933038469999998" blue="0.57551056150000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGw-LX-2g7">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="YN5-Ry-HOC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="39"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type Your City..." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T7N-I5-D7Z">
+                                <rect key="frame" x="16" y="318.5" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="f6F-vf-ewH"/>
+                                    <constraint firstAttribute="height" constant="30" id="f7p-Yc-MVd"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GDs-un-Hqp">
+                                <rect key="frame" x="0.0" y="522" width="375" height="145"/>
+                                <color key="backgroundColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="Yr1-dz-JhX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="37"/>
+                                <state key="normal" title="Add City To List">
+                                    <color key="titleColor" red="0.98571187260000004" green="0.94148349760000005" blue="0.94062334299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCityButton:" destination="lXm-Mf-GlB" eventType="touchUpInside" id="UqC-Ws-4gQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98571187260000004" green="0.94148349760000005" blue="0.94062334299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="T7N-I5-D7Z" firstAttribute="centerY" secondItem="WRD-YL-XrF" secondAttribute="centerY" id="0YH-k5-cph"/>
+                            <constraint firstItem="tGw-LX-2g7" firstAttribute="trailing" secondItem="ZzV-ld-w6r" secondAttribute="trailing" id="AAu-uG-59V"/>
+                            <constraint firstItem="T7N-I5-D7Z" firstAttribute="centerX" secondItem="WRD-YL-XrF" secondAttribute="centerX" id="AtR-JI-KAN"/>
+                            <constraint firstItem="GDs-un-Hqp" firstAttribute="trailing" secondItem="ZzV-ld-w6r" secondAttribute="trailing" id="Awi-8T-xI7"/>
+                            <constraint firstItem="tGw-LX-2g7" firstAttribute="leading" secondItem="ZzV-ld-w6r" secondAttribute="leading" id="DPZ-gW-fie"/>
+                            <constraint firstItem="tGw-LX-2g7" firstAttribute="top" secondItem="ZzV-ld-w6r" secondAttribute="top" id="LYj-s7-FEm"/>
+                            <constraint firstItem="GDs-un-Hqp" firstAttribute="bottom" secondItem="ZzV-ld-w6r" secondAttribute="bottom" id="PFh-9f-keR"/>
+                            <constraint firstItem="GDs-un-Hqp" firstAttribute="leading" secondItem="ZzV-ld-w6r" secondAttribute="leading" id="wbG-m1-C8r"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ZzV-ld-w6r"/>
                     </view>
                     <connections>
-                        <outlet property="searchDisplayController" destination="xmS-gI-2Zd" id="Dfz-Qc-vVi"/>
+                        <outlet property="cityTextField" destination="T7N-I5-D7Z" id="gN8-8Y-RH3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4S8-As-i5k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="lKO-I0-Yus">
-                    <connections>
-                        <outlet property="delegate" destination="lXm-Mf-GlB" id="Fza-f8-mWh"/>
-                        <outlet property="searchContentsController" destination="lXm-Mf-GlB" id="SSr-Tv-DTV"/>
-                        <outlet property="searchResultsDataSource" destination="lXm-Mf-GlB" id="wZv-fj-uwp"/>
-                        <outlet property="searchResultsDelegate" destination="lXm-Mf-GlB" id="b4K-Wn-SQO"/>
-                    </connections>
-                </searchDisplayController>
-                <searchDisplayController id="xmS-gI-2Zd">
-                    <connections>
-                        <outlet property="delegate" destination="lXm-Mf-GlB" id="yFZ-yF-ooO"/>
-                        <outlet property="searchContentsController" destination="lXm-Mf-GlB" id="yfk-5a-XJ6"/>
-                        <outlet property="searchResultsDataSource" destination="lXm-Mf-GlB" id="3Fr-Kg-lxP"/>
-                        <outlet property="searchResultsDelegate" destination="lXm-Mf-GlB" id="8e6-Am-VAI"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="454" y="839"/>
+            <point key="canvasLocation" x="453.60000000000002" y="838.83058470764627"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KXH-Zt-ouZ">
@@ -180,7 +209,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cloudy2" width="128" height="128"/>
+        <image name="dunno" width="128" height="128"/>
         <image name="ic_add_circle" width="24" height="24"/>
     </resources>
 </document>

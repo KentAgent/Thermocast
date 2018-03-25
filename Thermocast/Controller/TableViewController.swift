@@ -23,26 +23,29 @@ struct Main : Decodable {
 }
 
 struct Weather : Decodable {
-    //private enum CodingKeys : String, CodingKey { case id = "id" }
     let id : Int?
 }
 
 
-class TableViewController: UITableViewController, CLLocationManagerDelegate, UISearchResultsUpdating {
+class TableViewController: UITableViewController, CLLocationManagerDelegate, UISearchResultsUpdating, RecieveArray {
+    
+    func arrayData(array: [String]) {
+        cityArray = array
+    }
     
     var cellName = ""
-    var assetNamed = ""
     
     @IBOutlet weak var addButton: UIButton!
     
-    var weatherDataDictionary : [String : [String : String]] = ["gothenburg" : ["cityName" : "Gothenburg", "weatherIcon" : "snow5", "degrees" : "-30"], "singapore" : ["cityName" : "Singapore", "weatherIcon" : "sunny", "degrees" : "32"], "athens" : ["cityName" : "Athens", "weatherIcon" : "tstorm1", "degrees" : "20"]]
-    var keysArray = ["gothenburg", "singapore", "athens"]
+    
+    var cityArray : [String] = []
     
     var searchResult : [String] = []
     
     var searchController : UISearchController!
     
     let weatherDataModel = WeatherData()
+    
     
     //API Stuff
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
@@ -60,18 +63,36 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         searchController.dimsBackgroundDuringPresentation = false
         
         navigationItem.searchController = searchController
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        if UserDefaults.standard.stringArray(forKey: "cityArray") != nil {
+            cityArray = UserDefaults.standard.stringArray(forKey: "cityArray")!
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+        
+        //Save Data
+        saveCityList()
+    }
+    
+    func saveCityList() {
+        UserDefaults.standard.set(cityArray, forKey: "cityArray")
+    }
+    
+    //Dunno 'bout this...
+    func setDesignProperties() {
+        navigationController?.navigationBar.layer.masksToBounds = false
+        navigationController?.navigationBar.layer.shadowColor = UIColor.black.cgColor
+        navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        navigationController?.navigationBar.layer.shadowRadius = 12.0
     }
     
     func updateSearchResults(for searchController: UISearchController) {
-        //print("New Result: \(searchController.searchBar.text)")
+        
         if let text = searchController.searchBar.text?.lowercased() {
-            searchResult = keysArray.filter({ $0.lowercased().contains(text) })
+            searchResult = cityArray.filter({ $0.lowercased().contains(text) })
         } else {
             searchResult = []
         }
@@ -99,18 +120,17 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         
         //TODO: Add second section with current location
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         if shouldUseSearchResult {
             return searchResult.count
         } else {
-            return keysArray.count
+            return cityArray.count
         }
     }
     
@@ -124,13 +144,10 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         if shouldUseSearchResult {
             array = searchResult
         } else {
-            array = keysArray
+            array = cityArray
         }
         
-        print(indexPath.row)
-        cell.cityLabel.text = weatherDataDictionary[array[indexPath.row]]?["cityName"]
-        cell.degreeLabel.text = "\(weatherDataDictionary[array[indexPath.row]]?["degrees"] ?? "")°"
-        cell.weatherAsset.image = UIImage(named: (weatherDataDictionary[array[indexPath.row]]?["weatherIcon"]!)!)!
+        cell.cityLabel.text = array[indexPath.row]
         
         updateWeather(cell: cell)
         
@@ -151,9 +168,10 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
-            keysArray.remove(at: indexPath.row)
+            cityArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.reloadData()
+            saveCityList()
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -189,7 +207,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        cellName = (weatherDataDictionary[keysArray[indexPath.row]]?["cityName"])!
+        //cellName = (weatherDataDictionary[cityArray[indexPath.row]]?["cityName"])!
+        cellName = cityArray[indexPath.row]
         performSegue(withIdentifier: "weatherInfo", sender: self)
     }
     
@@ -199,6 +218,13 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
             
             infoVC.data = cellName
             
+        }
+        else if segue.identifier == "addCity" {
+            let addCityVC = segue.destination as! AddCity
+            
+            addCityVC.cityArrayData = cityArray
+            
+            addCityVC.delegate = self
         }
     }
     
@@ -220,9 +246,9 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
                             let weatherResponse = try decoder.decode(Root.self, from: actualData)
                             
                             DispatchQueue.main.async {
-                                cell.degreeLabel.text = String(weatherResponse.main.temp - 273.15)
-                                self.assetNamed = self.weatherDataModel.updateWeatherIcon(condition: weatherResponse.weather[0].id!)
-                                cell.weatherAsset.image = UIImage(named: self.assetNamed)
+                                cell.degreeLabel.text = "\(Int(weatherResponse.main.temp - 273.15))°"
+                                let assetNamed = self.weatherDataModel.updateWeatherIcon(condition: weatherResponse.weather[0].id!)
+                                cell.weatherAsset.image = UIImage(named: assetNamed)
                             }
                             
                         } catch let e {
