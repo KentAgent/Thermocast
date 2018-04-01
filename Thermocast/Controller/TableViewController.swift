@@ -296,7 +296,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
                                 cell.degreeLabel.text = "\(Int(weatherResponse.main.temp - 273.15))°"
                                 let assetNamed = self.weatherDataModel.updateWeatherIcon(condition: weatherResponse.weather[0].id!)
                                 cell.weatherAsset.image = UIImage(named: assetNamed)
-                                cell.wind = String(Int(weatherResponse.wind.speed))
+                                cell.wind = String(weatherResponse.wind.speed)
                             }
                             
                         } catch let e {

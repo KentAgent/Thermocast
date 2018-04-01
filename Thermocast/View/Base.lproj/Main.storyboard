@@ -133,25 +133,30 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Prolly' grab an umbrella m8. It's raining like a mf outside..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r99-DU-1Mb">
-                                <rect key="frame" x="0.0" y="280" width="375" height="387"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Prolly' grab an umbrella m8. It's raining like a mf outside..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r99-DU-1Mb">
+                                <rect key="frame" x="0.0" y="528" width="375" height="145"/>
                                 <color key="backgroundColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="145" id="nk0-k9-7sU"/>
+                                </constraints>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="23"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.98571187260000004" green="0.94148349760000005" blue="0.94062334299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="806-wY-DQp" firstAttribute="leading" secondItem="Qda-6S-rbp" secondAttribute="trailing" constant="8" symbolic="YES" id="615-HQ-RoA"/>
+                            <constraint firstItem="r99-DU-1Mb" firstAttribute="trailing" secondItem="V1g-vw-yB7" secondAttribute="trailing" id="AFD-Gj-C8J"/>
                             <constraint firstItem="V1g-vw-yB7" firstAttribute="trailing" secondItem="ch8-Qr-CIP" secondAttribute="trailing" id="Dk4-eN-RmH"/>
                             <constraint firstItem="8W8-bC-svr" firstAttribute="leading" secondItem="806-wY-DQp" secondAttribute="trailing" constant="41" id="FiG-K8-MQV"/>
                             <constraint firstItem="8W8-bC-svr" firstAttribute="top" secondItem="V1g-vw-yB7" secondAttribute="bottom" constant="51" id="JDv-oS-bsF"/>
                             <constraint firstItem="806-wY-DQp" firstAttribute="centerX" secondItem="ku0-r0-Dka" secondAttribute="centerX" id="Ks5-C4-Hbv"/>
                             <constraint firstItem="V1g-vw-yB7" firstAttribute="centerX" secondItem="ku0-r0-Dka" secondAttribute="centerX" id="SgW-eT-bfk"/>
+                            <constraint firstItem="r99-DU-1Mb" firstAttribute="leading" secondItem="V1g-vw-yB7" secondAttribute="leading" id="Voq-BO-WoT"/>
                             <constraint firstItem="Qda-6S-rbp" firstAttribute="bottom" secondItem="8W8-bC-svr" secondAttribute="bottom" id="Vph-eq-yz0"/>
                             <constraint firstItem="V1g-vw-yB7" firstAttribute="leading" secondItem="ch8-Qr-CIP" secondAttribute="leading" id="Y9g-Zu-mnb"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="r99-DU-1Mb" secondAttribute="bottom" constant="-6" id="Z4n-Pm-uRi"/>
                             <constraint firstItem="Qda-6S-rbp" firstAttribute="leading" secondItem="ku0-r0-Dka" secondAttribute="leadingMargin" id="dli-IC-Qrn"/>
                             <constraint firstItem="8W8-bC-svr" firstAttribute="trailing" secondItem="ku0-r0-Dka" secondAttribute="trailingMargin" id="gTT-Jv-A2f"/>
                             <constraint firstItem="Qda-6S-rbp" firstAttribute="top" secondItem="8W8-bC-svr" secondAttribute="top" id="jx5-EF-a3b"/>
@@ -162,6 +167,7 @@
                     </view>
                     <connections>
                         <outlet property="cityNameLabel" destination="V1g-vw-yB7" id="qRF-mU-1Yi"/>
+                        <outlet property="clothingTextView" destination="r99-DU-1Mb" id="Qki-FN-2O5"/>
                         <outlet property="tempLabel" destination="8W8-bC-svr" id="2u8-Qu-q0v"/>
                         <outlet property="weatherAssetImage" destination="806-wY-DQp" id="3Aa-53-kMh"/>
                         <outlet property="windLabel" destination="Qda-6S-rbp" id="ltI-jC-V6A"/>
