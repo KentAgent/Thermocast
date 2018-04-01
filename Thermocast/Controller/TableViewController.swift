@@ -12,9 +12,15 @@ import Alamofire
 import SwiftyJSON
 
 struct Root : Decodable {
-    private enum CodingKeys : String, CodingKey { case main = "main"; case weather = "weather" }
+    private enum CodingKeys : String, CodingKey {
+        case main = "main"
+        case weather = "weather"
+        case wind = "wind"
+    }
+    
     let main : Main
     let weather : [Weather]
+    let wind : Wind
 }
 
 struct Main : Decodable {
@@ -26,6 +32,11 @@ struct Weather : Decodable {
     let id : Int?
 }
 
+struct Wind : Decodable {
+    private enum CudingKeys : String, CodingKey { case speed = "speed" }
+    let speed : Float
+}
+
 
 class TableViewController: UITableViewController, CLLocationManagerDelegate, UISearchResultsUpdating, RecieveArray {
     
@@ -33,7 +44,11 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         cityArray = array
     }
     
+    //Variables for prepareForSegue
     var cellName = ""
+    var cellTemp = ""
+    var cellWeatherAsset : UIImage?
+    var cellWindSpeed = ""
     
     
     
@@ -77,6 +92,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         title = "T H E R M O C A S T"
         
         definesPresentationContext = true
+        
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         searchController = UISearchController(searchResultsController: nil)
         searchController.searchResultsUpdater = self
@@ -174,21 +191,16 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         
         updateWeather(cell: cell)
         
+        cellTemp = cell.degreeLabel.text!
+        cellWeatherAsset = cell.weatherAsset.image!
+        
         return cell
     }
  
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.alpha = 0
-        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
+        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 0, 0)
         cell.layer.transform = transform
         
         UIView.animate(withDuration: 1.0) {
@@ -210,39 +222,35 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
- 
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let movedObject = cityArray[sourceIndexPath.row]
+        cityArray.remove(at: sourceIndexPath.row)
+        cityArray.insert(movedObject, at: destinationIndexPath.row)
+        
+        saveCityList()
+    }
+ 
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    @IBAction func addCityButton(_ sender: Any) {
-        performSegue(withIdentifier: "addCity", sender: self)
-    }
+ 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //cellName = (weatherDataDictionary[cityArray[indexPath.row]]?["cityName"])!
-        cellName = cityArray[indexPath.row]
+        let currentCell = tableView.cellForRow(at: indexPath) as! CustomTableViewCell
+        
+        cellName = currentCell.cityLabel.text!
+        cellTemp = currentCell.degreeLabel.text!
+        cellWeatherAsset = currentCell.weatherAsset.image!
+        cellWindSpeed = currentCell.wind
         performSegue(withIdentifier: "weatherInfo", sender: self)
     }
     
@@ -251,6 +259,9 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
             let infoVC = segue.destination as! InfoViewController
             
             infoVC.data = cellName
+            infoVC.temp = cellTemp
+            infoVC.imageAsset = cellWeatherAsset
+            infoVC.speed = cellWindSpeed
             
         }
         else if segue.identifier == "addCity" {
@@ -261,6 +272,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
             addCityVC.delegate = self
         }
     }
+    
+    //MARK: - Networking
     
     func updateWeather(cell: CustomTableViewCell) {
         if let safeString = cell.cityLabel.text!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
@@ -283,6 +296,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
                                 cell.degreeLabel.text = "\(Int(weatherResponse.main.temp - 273.15))°"
                                 let assetNamed = self.weatherDataModel.updateWeatherIcon(condition: weatherResponse.weather[0].id!)
                                 cell.weatherAsset.image = UIImage(named: assetNamed)
+                                cell.wind = String(Int(weatherResponse.wind.speed))
                             }
                             
                         } catch let e {

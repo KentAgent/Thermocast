@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -113,18 +114,57 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shower3" translatesAutoresizingMaskIntoConstraints="NO" id="806-wY-DQp">
+                                <rect key="frame" x="138" y="144" width="99" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="???°" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8W8-bC-svr">
+                                <rect key="frame" x="278" y="178" width="81" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="fYW-fP-1hc"/>
+                                    <constraint firstAttribute="width" constant="81" id="vGC-pO-0E5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="41"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="??? m/s" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qda-6S-rbp">
+                                <rect key="frame" x="16" y="178" width="114" height="60"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Prolly' grab an umbrella m8. It's raining like a mf outside..." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="r99-DU-1Mb">
+                                <rect key="frame" x="0.0" y="280" width="375" height="387"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.98571187260000004" green="0.94148349760000005" blue="0.94062334299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="V1g-vw-yB7" firstAttribute="centerX" secondItem="ku0-r0-Dka" secondAttribute="centerX" id="Jvy-08-jhr"/>
-                            <constraint firstItem="V1g-vw-yB7" firstAttribute="top" secondItem="ch8-Qr-CIP" secondAttribute="top" constant="16" id="RP0-0J-Tq4"/>
-                            <constraint firstItem="ch8-Qr-CIP" firstAttribute="trailing" secondItem="V1g-vw-yB7" secondAttribute="trailing" id="Y7c-bq-Pgh"/>
-                            <constraint firstItem="V1g-vw-yB7" firstAttribute="leading" secondItem="ch8-Qr-CIP" secondAttribute="leading" id="Ytg-dE-Ng7"/>
+                            <constraint firstItem="806-wY-DQp" firstAttribute="leading" secondItem="Qda-6S-rbp" secondAttribute="trailing" constant="8" symbolic="YES" id="615-HQ-RoA"/>
+                            <constraint firstItem="V1g-vw-yB7" firstAttribute="trailing" secondItem="ch8-Qr-CIP" secondAttribute="trailing" id="Dk4-eN-RmH"/>
+                            <constraint firstItem="8W8-bC-svr" firstAttribute="leading" secondItem="806-wY-DQp" secondAttribute="trailing" constant="41" id="FiG-K8-MQV"/>
+                            <constraint firstItem="8W8-bC-svr" firstAttribute="top" secondItem="V1g-vw-yB7" secondAttribute="bottom" constant="51" id="JDv-oS-bsF"/>
+                            <constraint firstItem="806-wY-DQp" firstAttribute="centerX" secondItem="ku0-r0-Dka" secondAttribute="centerX" id="Ks5-C4-Hbv"/>
+                            <constraint firstItem="V1g-vw-yB7" firstAttribute="centerX" secondItem="ku0-r0-Dka" secondAttribute="centerX" id="SgW-eT-bfk"/>
+                            <constraint firstItem="Qda-6S-rbp" firstAttribute="bottom" secondItem="8W8-bC-svr" secondAttribute="bottom" id="Vph-eq-yz0"/>
+                            <constraint firstItem="V1g-vw-yB7" firstAttribute="leading" secondItem="ch8-Qr-CIP" secondAttribute="leading" id="Y9g-Zu-mnb"/>
+                            <constraint firstItem="Qda-6S-rbp" firstAttribute="leading" secondItem="ku0-r0-Dka" secondAttribute="leadingMargin" id="dli-IC-Qrn"/>
+                            <constraint firstItem="8W8-bC-svr" firstAttribute="trailing" secondItem="ku0-r0-Dka" secondAttribute="trailingMargin" id="gTT-Jv-A2f"/>
+                            <constraint firstItem="Qda-6S-rbp" firstAttribute="top" secondItem="8W8-bC-svr" secondAttribute="top" id="jx5-EF-a3b"/>
+                            <constraint firstItem="8W8-bC-svr" firstAttribute="centerY" secondItem="806-wY-DQp" secondAttribute="centerY" id="mKS-pB-Ts7"/>
+                            <constraint firstItem="V1g-vw-yB7" firstAttribute="top" secondItem="ch8-Qr-CIP" secondAttribute="top" constant="16" id="w7I-xs-63u"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ch8-Qr-CIP"/>
                     </view>
                     <connections>
                         <outlet property="cityNameLabel" destination="V1g-vw-yB7" id="qRF-mU-1Yi"/>
+                        <outlet property="tempLabel" destination="8W8-bC-svr" id="2u8-Qu-q0v"/>
+                        <outlet property="weatherAssetImage" destination="806-wY-DQp" id="3Aa-53-kMh"/>
+                        <outlet property="windLabel" destination="Qda-6S-rbp" id="ltI-jC-V6A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzU-VG-OyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -216,5 +256,6 @@
     <resources>
         <image name="dunno" width="128" height="128"/>
         <image name="ic_add_circle" width="24" height="24"/>
+        <image name="shower3" width="128" height="128"/>
     </resources>
 </document>

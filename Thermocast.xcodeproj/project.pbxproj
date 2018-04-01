@@ -17,7 +17,6 @@
 		352657292056C1540066AF03 /* AddCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352657282056C1540066AF03 /* AddCity.swift */; };
 		3526572B2056CA560066AF03 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526572A2056CA560066AF03 /* CustomTableViewCell.swift */; };
 		3526572D205ACA1A0066AF03 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526572C205ACA1A0066AF03 /* InfoViewController.swift */; };
-		3526574F20616B250066AF03 /* CreateCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526574E20616B250066AF03 /* CreateCity.swift */; };
 		9B0B0163E0B91519D8E1F5A9 /* Pods_Thermocast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93A11E1F85DC9AF1CCC8B39 /* Pods_Thermocast.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		352657282056C1540066AF03 /* AddCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCity.swift; sourceTree = "<group>"; };
 		3526572A2056CA560066AF03 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3526572C205ACA1A0066AF03 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
-		3526574E20616B250066AF03 /* CreateCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCity.swift; sourceTree = "<group>"; };
 		A45E8D8AAEE4EF5CF2C8D38F /* Pods-Thermocast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermocast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast.release.xcconfig"; sourceTree = "<group>"; };
 		A93A11E1F85DC9AF1CCC8B39 /* Pods_Thermocast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermocast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DED223E9F6640AB087E31A /* Pods-Thermocast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermocast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast.debug.xcconfig"; sourceTree = "<group>"; };
@@ -88,7 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				352657262056B99A0066AF03 /* WeatherData.swift */,
-				3526574E20616B250066AF03 /* CreateCity.swift */,
 			);
 			name = Model;
 			path = "New Group";
@@ -264,7 +261,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3526574F20616B250066AF03 /* CreateCity.swift in Sources */,
 				3526572B2056CA560066AF03 /* CustomTableViewCell.swift in Sources */,
 				352657122056A8880066AF03 /* ViewController.swift in Sources */,
 				352657292056C1540066AF03 /* AddCity.swift in Sources */,

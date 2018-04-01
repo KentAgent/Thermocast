@@ -15,6 +15,8 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var degreeLabel: UILabel!
     
+    var wind : String!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
