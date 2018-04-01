@@ -35,6 +35,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     
     var cellName = ""
     
+    
+    
     @IBOutlet weak var addButton: UIButton!
     
     
@@ -46,8 +48,26 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     
     let weatherDataModel = WeatherData()
     
+    lazy var refresher : UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(requestData), for: .valueChanged)
+        
+        return refreshControl
+    }()
     
-    //API Stuff
+    @objc
+    func requestData() {
+        print("Requesting data to update tableView")
+        
+        tableView.reloadData()
+        
+        let deadline = DispatchTime.now() + .milliseconds(500)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            self.refresher.endRefreshing()
+        }
+    }
+    
+    //API Constants
     let WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather"
     let APP_ID = "8ecd8d52a8bb9ccdbef85e0cd12187f5"
 
@@ -67,6 +87,9 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         if UserDefaults.standard.stringArray(forKey: "cityArray") != nil {
             cityArray = UserDefaults.standard.stringArray(forKey: "cityArray")!
         }
+        
+        tableView.refreshControl = refresher
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,6 +185,17 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         return true
     }
     */
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        let transform = CATransform3DTranslate(CATransform3DIdentity, -250, 20, 0)
+        cell.layer.transform = transform
+        
+        UIView.animate(withDuration: 1.0) {
+            cell.alpha = 1.0
+            cell.layer.transform = CATransform3DIdentity
+        }
+    }
 
     
     // Override to support editing the table view.

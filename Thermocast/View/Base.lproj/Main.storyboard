@@ -107,15 +107,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1g-vw-yB7">
-                                <rect key="frame" x="16" y="80" width="343" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1g-vw-yB7">
+                                <rect key="frame" x="0.0" y="80" width="375" height="47"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="39"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98571187260000004" green="0.94148349760000005" blue="0.94062334299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="V1g-vw-yB7" firstAttribute="centerX" secondItem="ku0-r0-Dka" secondAttribute="centerX" id="Jvy-08-jhr"/>
+                            <constraint firstItem="V1g-vw-yB7" firstAttribute="top" secondItem="ch8-Qr-CIP" secondAttribute="top" constant="16" id="RP0-0J-Tq4"/>
+                            <constraint firstItem="ch8-Qr-CIP" firstAttribute="trailing" secondItem="V1g-vw-yB7" secondAttribute="trailing" id="Y7c-bq-Pgh"/>
+                            <constraint firstItem="V1g-vw-yB7" firstAttribute="leading" secondItem="ch8-Qr-CIP" secondAttribute="leading" id="Ytg-dE-Ng7"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ch8-Qr-CIP"/>
                     </view>
                     <connections>
