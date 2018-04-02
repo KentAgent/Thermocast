@@ -20,6 +20,7 @@ class InfoViewController: UIViewController {
     var temp = ""
     var imageAsset : UIImage?
     var speed = ""
+    var actualTemp : Int?
     
     
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -37,14 +38,16 @@ class InfoViewController: UIViewController {
         tempLabel.text = temp
         windLabel.text = "\(speed) m/s"
         
+        updateClothingAdvise(temp: actualTemp!, speed: Float(speed)!, weatherAsset: imageAsset!)
+        
         clothingTextView.textContainerInset = UIEdgeInsetsMake(18,15,18,15)
         
         performAnimations()
         
-//        let clothingTemp = Int(temp)!
-//        let clothingSpeed = Float(speed)!
-//
-//        updateClothingAdvise(temp: clothingTemp, speed: clothingSpeed, weatherAsset: imageAsset!)
+//        let clothingTemp : Int = Int(temp)!
+//        let clothingSpeed : Float = Float(speed)!
+
+        
         
     }
     
@@ -82,17 +85,26 @@ class InfoViewController: UIViewController {
     func updateClothingAdvise(temp: Int, speed: Float, weatherAsset: UIImage) {
         var weatherAdvise : String
         
-        let tempAdviseHot = "It's hot like a mf."
-        let tempAdviseCold = "It's cold like a mf."
-        
-        let windAdviseLow = " and the wind is almost standing still."
-        let windAdviseHigh = " and the wind blows like a bi*ch."
-        
-        let rainAdviseLow = " No rain to be spotted tho. Good for you"
-        let rainAdviseHigh = " Better grab an umbrella. You might get hit by a shower."
-        
-        if temp > 5 && speed > 3.0 && (weatherAsset == #imageLiteral(resourceName: "light_rain") || weatherAsset == #imageLiteral(resourceName: "shower3")) {
-            weatherAdvise = tempAdviseCold + windAdviseLow + rainAdviseHigh
+        if temp < 5 && (weatherAsset == #imageLiteral(resourceName: "light_rain") || weatherAsset == #imageLiteral(resourceName: "shower3")) {
+            weatherAdvise = "Bring a jacked, an umbrella and a positive attitude. You'll need it in this dull weather..."
+        }
+        else if temp <= 5 && weatherAsset == #imageLiteral(resourceName: "sunny") {
+            weatherAdvise = "Don't let the sun make a fool out you you. It's still cold as a mf. Bring a jacket, some thick socks and a beanie."
+        }
+        else if temp >= 5 && temp <= 15 && speed >= 3.0 && speed <= 7 && (weatherAsset == #imageLiteral(resourceName: "sunny") || weatherAsset == #imageLiteral(resourceName: "cloudy2")) {
+            weatherAdvise = "There's that spring weather. Wear a sweater and be happy, u son of a bi*ch. "
+        }
+        else if temp > 15 && temp < 25 && speed >= 5 && (weatherAsset == #imageLiteral(resourceName: "sunny") || weatherAsset == #imageLiteral(resourceName: "cloudy2")) {
+            weatherAdvise = "Now that's a comfy weather! Put a sweater in the bag just in case."
+        }
+        else if temp < -30 {
+            weatherAdvise = "What are you even thinking!? Can't you see that shit through the window?? Lock the doors and pray that you got enough food to survive."
+        }
+        else if temp >= 50 && (weatherAsset == #imageLiteral(resourceName: "sunny") || weatherAsset == #imageLiteral(resourceName: "cloudy2")) {
+            weatherAdvise = "If you're planning to leave the house, better leave your clothes as well.."
+        }
+        else if temp >= 26 && temp <= 35 && speed <= 6.0 && (weatherAsset == #imageLiteral(resourceName: "sunny") || weatherAsset == #imageLiteral(resourceName: "cloudy2")) {
+            weatherAdvise = "Now that's what I'm talking about. Grab that swimwear and head to the beach."
         }
         else {
             weatherAdvise = "I dunno what you should wear tbh... Better stay indoors."

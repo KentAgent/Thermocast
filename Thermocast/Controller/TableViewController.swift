@@ -49,6 +49,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
     var cellTemp = ""
     var cellWeatherAsset : UIImage?
     var cellWindSpeed = ""
+    var cellActualTemp : Int?
     
     
     
@@ -251,6 +252,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
         cellTemp = currentCell.degreeLabel.text!
         cellWeatherAsset = currentCell.weatherAsset.image!
         cellWindSpeed = currentCell.wind
+        cellActualTemp = currentCell.actualTemp
         performSegue(withIdentifier: "weatherInfo", sender: self)
     }
     
@@ -262,6 +264,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
             infoVC.temp = cellTemp
             infoVC.imageAsset = cellWeatherAsset
             infoVC.speed = cellWindSpeed
+            infoVC.actualTemp = cellActualTemp
             
         }
         else if segue.identifier == "addCity" {
@@ -297,6 +300,7 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
                                 let assetNamed = self.weatherDataModel.updateWeatherIcon(condition: weatherResponse.weather[0].id!)
                                 cell.weatherAsset.image = UIImage(named: assetNamed)
                                 cell.wind = String(weatherResponse.wind.speed)
+                                cell.actualTemp = Int(weatherResponse.main.temp - 273.15)
                             }
                             
                         } catch let e {

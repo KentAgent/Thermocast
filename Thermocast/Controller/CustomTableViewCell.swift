@@ -16,6 +16,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var degreeLabel: UILabel!
     
     var wind : String!
+    var actualTemp : Int!
     
     override func awakeFromNib() {
         super.awakeFromNib()
