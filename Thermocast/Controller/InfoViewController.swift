@@ -89,7 +89,7 @@ class InfoViewController: UIViewController {
             weatherAdvise = "Bring a jacked, an umbrella and a positive attitude. You'll need it in this dull weather..."
         }
         else if temp <= 5 && weatherAsset == #imageLiteral(resourceName: "sunny") {
-            weatherAdvise = "Don't let the sun make a fool out you you. It's still cold as a mf. Bring a jacket, some thick socks and a beanie."
+            weatherAdvise = "Don't let the sun make a fool out you you. It's still cold  a mf. Bring a jacket, some thick socks and a beanie."
         }
         else if temp >= 5 && temp <= 15 && speed >= 3.0 && speed <= 7 && (weatherAsset == #imageLiteral(resourceName: "sunny") || weatherAsset == #imageLiteral(resourceName: "cloudy2")) {
             weatherAdvise = "There's that spring weather. Wear a sweater and be happy, u son of a bi*ch. "
