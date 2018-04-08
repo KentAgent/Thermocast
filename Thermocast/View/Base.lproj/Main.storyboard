@@ -90,10 +90,26 @@
                             <outlet property="delegate" destination="sBf-oJ-SwE" id="2ws-wg-qOc"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="3xU-pt-9Oi"/>
+                        <barButtonItem title="Cities" id="eP6-NC-f05">
+                            <color key="tintColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Du1-eH-KBW"/>
+                        <barButtonItem tag="1" title="Chart" id="U1M-wX-omC">
+                            <color key="tintColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="bottomBarChart:" destination="sBf-oJ-SwE" id="zC3-X0-Hkk"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="E2i-j4-XEG"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="oq1-mo-X9d"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="addButton" destination="MTu-OH-GRQ" id="ll7-CR-RER"/>
                         <segue destination="00t-Sd-njQ" kind="show" identifier="weatherInfo" id="4A1-ep-HAH"/>
+                        <segue destination="YXg-ge-tzv" kind="show" identifier="chart" id="4qS-5R-Ksk"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xFa-qd-tZN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -103,7 +119,7 @@
         <!--Info View Controller-->
         <scene sceneID="DvN-fq-32q">
             <objects>
-                <viewController id="00t-Sd-njQ" customClass="InfoViewController" customModule="Thermocast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="00t-Sd-njQ" customClass="InfoViewController" customModule="Thermocast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ku0-r0-Dka">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -175,12 +191,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GzU-VG-OyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1295.2" y="98.50074962518741"/>
+            <point key="canvasLocation" x="1313" y="-215"/>
         </scene>
         <!--Add City-->
         <scene sceneID="HXE-cN-wYR">
             <objects>
-                <viewController id="lXm-Mf-GlB" customClass="AddCity" customModule="Thermocast" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="lXm-Mf-GlB" customClass="AddCity" customModule="Thermocast" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WRD-YL-XrF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,16 +256,76 @@
             </objects>
             <point key="canvasLocation" x="453.60000000000002" y="838.83058470764627"/>
         </scene>
+        <!--Chart View Controller-->
+        <scene sceneID="oO9-md-ufH">
+            <objects>
+                <viewController id="YXg-ge-tzv" customClass="ChartViewController" customModule="Thermocast" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4VT-Jd-Hvx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o5T-Q8-p1D" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="166" width="343" height="336"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weather Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTx-GM-rfz">
+                                <rect key="frame" x="16" y="64" width="343" height="94"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="43"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.98571187260000004" green="0.94148349760000005" blue="0.94062334299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="TTx-GM-rfz" firstAttribute="leading" secondItem="o5T-Q8-p1D" secondAttribute="leading" id="8b8-qK-gLj"/>
+                            <constraint firstItem="TTx-GM-rfz" firstAttribute="trailing" secondItem="4VT-Jd-Hvx" secondAttribute="trailingMargin" id="KlB-Ln-ihm"/>
+                            <constraint firstItem="F1l-zo-dlY" firstAttribute="bottom" secondItem="o5T-Q8-p1D" secondAttribute="bottom" constant="121" id="SvN-bR-TCd"/>
+                            <constraint firstItem="TTx-GM-rfz" firstAttribute="trailing" secondItem="o5T-Q8-p1D" secondAttribute="trailing" id="WBL-ql-sgx"/>
+                            <constraint firstItem="TTx-GM-rfz" firstAttribute="leading" secondItem="4VT-Jd-Hvx" secondAttribute="leadingMargin" id="dAi-gQ-iEa"/>
+                            <constraint firstItem="o5T-Q8-p1D" firstAttribute="top" secondItem="TTx-GM-rfz" secondAttribute="bottom" constant="8" symbolic="YES" id="qrg-rQ-8rr"/>
+                            <constraint firstItem="o5T-Q8-p1D" firstAttribute="centerY" secondItem="4VT-Jd-Hvx" secondAttribute="centerY" id="v5e-q5-Coy"/>
+                            <constraint firstItem="TTx-GM-rfz" firstAttribute="top" secondItem="F1l-zo-dlY" secondAttribute="top" id="y43-JL-ja7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="F1l-zo-dlY"/>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Ut5-qI-FjW"/>
+                        <barButtonItem title="Cities" id="4uW-nW-b7n">
+                            <color key="tintColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="bottomBarCities:" destination="YXg-ge-tzv" id="3Tc-gI-ZYu"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="rPE-La-LBf"/>
+                        <barButtonItem tag="1" title="Chart" id="t9u-sp-ZkG">
+                            <color key="tintColor" red="0.48481410740000003" green="0.45899873969999999" blue="0.458507359" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Luh-b5-raQ"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="o5T-Q8-p1D" id="6Mi-JA-jfk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GCE-oF-cto" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1312.8" y="492.50374812593708"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="KXH-Zt-ouZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ykJ-2K-ueO" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="ykJ-2K-ueO" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics" translucent="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="k6w-ei-HcA">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="nE6-Ey-h3L">
+                        <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="sBf-oJ-SwE" kind="relationship" relationship="rootViewController" id="5um-oG-Cum"/>
                     </connections>

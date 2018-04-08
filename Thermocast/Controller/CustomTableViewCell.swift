@@ -18,6 +18,8 @@ class CustomTableViewCell: UITableViewCell {
     var wind : String!
     var actualTemp : Int!
     
+    var isMarked : Bool = false
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

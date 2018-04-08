@@ -17,6 +17,7 @@
 		3526572B2056CA560066AF03 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526572A2056CA560066AF03 /* CustomTableViewCell.swift */; };
 		3526572D205ACA1A0066AF03 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3526572C205ACA1A0066AF03 /* InfoViewController.swift */; };
 		3534B4A1207275B800E7D53D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3534B4A0207275B800E7D53D /* Assets.xcassets */; };
+		354F1DEF2078DED300F450C1 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 354F1DEE2078DED300F450C1 /* ChartViewController.swift */; };
 		9B0B0163E0B91519D8E1F5A9 /* Pods_Thermocast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93A11E1F85DC9AF1CCC8B39 /* Pods_Thermocast.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		3526572A2056CA560066AF03 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3526572C205ACA1A0066AF03 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		3534B4A0207275B800E7D53D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		354F1DEE2078DED300F450C1 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		A45E8D8AAEE4EF5CF2C8D38F /* Pods-Thermocast.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermocast.release.xcconfig"; path = "Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast.release.xcconfig"; sourceTree = "<group>"; };
 		A93A11E1F85DC9AF1CCC8B39 /* Pods_Thermocast.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Thermocast.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DED223E9F6640AB087E31A /* Pods-Thermocast.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Thermocast.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				352657282056C1540066AF03 /* AddCity.swift */,
 				3526572A2056CA560066AF03 /* CustomTableViewCell.swift */,
 				3526572C205ACA1A0066AF03 /* InfoViewController.swift */,
+				354F1DEE2078DED300F450C1 /* ChartViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,12 +228,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Thermocast/Pods-Thermocast-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -266,6 +271,7 @@
 				352657292056C1540066AF03 /* AddCity.swift in Sources */,
 				3526572D205ACA1A0066AF03 /* InfoViewController.swift in Sources */,
 				352657252056A94F0066AF03 /* TableViewController.swift in Sources */,
+				354F1DEF2078DED300F450C1 /* ChartViewController.swift in Sources */,
 				352657272056B99A0066AF03 /* WeatherData.swift in Sources */,
 				352657102056A8880066AF03 /* AppDelegate.swift in Sources */,
 			);
