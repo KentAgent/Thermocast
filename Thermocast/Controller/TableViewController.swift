@@ -372,6 +372,8 @@ class TableViewController: UITableViewController, CLLocationManagerDelegate, UIS
             let chartVC = segue.destination as! ChartViewController
             
             getMarkedCells()
+            
+            chartVC.customCellArray = markedCells
             print("After segue, markedCells are now: \(markedCells.count)")
         }
     }
